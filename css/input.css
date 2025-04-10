@@ -1,0 +1,15 @@
+@import "tailwindcss";
+.shaowbox {
+    -webkit-box-shadow: 20px 24px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 20px 24px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 20px 24px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  @media screen and (max-width: 768px) {
+    .shaowbox {
+      -webkit-box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.2);
+      -moz-box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.2);
+      box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.2);
+    }
+    
+  }
