@@ -15,6 +15,7 @@ Vanam is a professional B2B supplier platform specializing in sports equipment a
 - SEO-optimized structure
 - Contact form integration
 - Privacy policy and terms & conditions pages
+- Enhanced security headers configuration
 
 ## Tech Stack
 
@@ -94,5 +95,61 @@ The website is optimized for modern browsers including:
 - Firefox (latest)
 - Safari (latest)
 - Edge (latest)
+
+## Security Configuration
+
+### Netlify Deployment
+Security headers are automatically configured through the `netlify.toml` file in the root directory.
+
+### Nginx Server Configuration
+If deploying to a custom Nginx server, add the following configuration to your server block:
+
+```nginx
+server {
+    # ... other server configurations ...
+
+    # Security Headers
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
+    add_header Content-Security-Policy "default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https:; frame-src 'self' https:; object-src 'none'" always;
+    add_header X-Frame-Options "DENY" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+    add_header Permissions-Policy "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()" always;
+    add_header X-XSS-Protection "1; mode=block" always;
+
+    # SSL Configuration (recommended)
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_prefer_server_ciphers on;
+    ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
+
+    # Enable OCSP stapling
+    ssl_stapling on;
+    ssl_stapling_verify on;
+    resolver 8.8.8.8 8.8.4.4 valid=300s;
+    resolver_timeout 5s;
+
+    # Additional security measures
+    server_tokens off;
+    client_max_body_size 10M;
+    keepalive_timeout 65;
+}
+```
+
+### Security Headers Explanation
+
+1. **Strict-Transport-Security**: Forces HTTPS connections
+2. **Content-Security-Policy**: Controls resource loading permissions
+3. **X-Frame-Options**: Prevents clickjacking attacks
+4. **X-Content-Type-Options**: Prevents MIME type sniffing
+5. **Referrer-Policy**: Controls referrer information sharing
+6. **Permissions-Policy**: Restricts browser feature access
+7. **X-XSS-Protection**: Additional XSS protection for older browsers
+
+### SSL Configuration
+- Uses modern TLS protocols (1.2 and 1.3)
+- Implements secure cipher suites
+- Enables OCSP stapling
+- Disables server tokens
+- Sets reasonable limits for request body size and keepalive
 
 > For optimal development experience, install the [Markdown Viewer extension](https://chromewebstore.google.com/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk) in your browser.
