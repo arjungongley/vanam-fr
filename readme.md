@@ -24,6 +24,8 @@ Vanam is a professional B2B supplier platform specializing in sports equipment a
 - **CSS3/Tailwind CSS** - Utility-first styling framework
 - **JavaScript** - Vanilla JS for interactive features
 - **Swiper.js** - Touch-enabled slider library
+- **PHP** - Server-side processing for contact form
+- **PHPMailer** - Email sending library for PHP
 
 ## Project Structure
 
@@ -38,6 +40,8 @@ vanam-fr/
 │   └── input.css        # Tailwind source CSS
 ├── index.html           # Homepage
 ├── contact.html         # Contact page
+├── contact.php          # Contact form handler
+├── composer.json        # PHP dependencies
 ├── privacy-policy.html  # Privacy policy
 ├── terms-and-conditions.html
 ├── package.json         # Project dependencies
@@ -50,6 +54,9 @@ vanam-fr/
 
 - Node.js and npm installed
 - Basic knowledge of HTML, CSS, and JavaScript
+- Understanding of Tailwind CSS
+- PHP 7.4+ for contact form functionality
+- Composer for PHP dependencies
 - Understanding of Tailwind CSS
 
 ### Creating New Pages
@@ -143,7 +150,63 @@ server {
     client_max_body_size 10M;
     keepalive_timeout 65;
 }
+
+## Contact Form Configuration
+
+The website includes a PHP-based contact form that sends emails to the administrator. Follow these steps to configure it:
+
+### 1. Install PHP Dependencies
+
+```bash
+composer install
 ```
+
+### 2. Configure Email Settings
+
+Edit the `contact.php` file and update the configuration section with your SMTP details:
+
+```php
+// Configuration - Update these with your actual email settings
+$config = [
+    'admin_email' => 'your-email@example.com', // Change to your actual email
+    'email_subject' => 'New Contact Form Submission - Vanam SARL',
+    'smtp_host' => 'smtp.example.com', // Update with your SMTP server
+    'smtp_username' => 'your_username', // Update with your SMTP username
+    'smtp_password' => 'your_password', // Update with your SMTP password
+    'smtp_port' => 587, // Common ports: 25, 465, 587
+    'smtp_secure' => 'tls', // Options: '', 'ssl', 'tls'
+];
+```
+
+### 3. Hosting Requirements
+
+To use the contact form functionality, your hosting environment must:
+- Support PHP 7.4 or higher
+- Allow outgoing SMTP connections
+- Have the required PHP extensions enabled (OpenSSL, PDO, Mbstring)
+
+### 4. Testing the Form
+
+After configuration, test the form by:
+1. Filling out all required fields
+2. Submitting the form
+3. Verifying that you receive the email at your configured admin email address
+
+### 5. Security Considerations
+
+The contact form implementation includes:
+- Input validation and sanitization
+- CSRF protection (via form tokens)
+- Rate limiting (to prevent spam)
+- Secure email configuration
+
+### 6. Troubleshooting
+
+If emails are not being received:
+- Check your SMTP configuration details
+- Verify your hosting allows outgoing SMTP connections
+- Check spam/junk folders
+- Review server logs for PHP errors
 
 ## SEO Optimization
 

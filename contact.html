@@ -144,8 +144,9 @@
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
-        <form action="#" method="POST" class="space-y-6">
-          <div>
+        
+          <form action="contact.php" method="POST" class="space-y-6" id="contactForm">
+           <div>
             <label for="name" class="block text-sm font-medium text-gray-700"
               >Your Name</label
             >
@@ -199,6 +200,7 @@
             >
               Send
             </button>
+            <div id="formStatus" class="mt-4 text-center hidden"></div>
           </div>
         </form>
       </div>
@@ -456,5 +458,74 @@
       </div>
     </footer>
     <script src="js/script.js"></script>
+    <script>
+      // Contact form handling
+      document.addEventListener('DOMContentLoaded', function() {
+        const contactForm = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+        
+        // Check for URL parameters to display success/error messages
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('status')) {
+          formStatus.classList.remove('hidden');
+          
+          if (urlParams.get('status') === 'success') {
+            formStatus.innerHTML = '<p class="text-green-600">Thank you for your message. We will get back to you soon!</p>';
+            formStatus.classList.add('text-green-600');
+          } else {
+            formStatus.innerHTML = '<p class="text-red-600">Sorry, there was an error sending your message. Please try again.</p>';
+            formStatus.classList.add('text-red-600');
+          }
+        }
+        
+        // Handle form submission
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Reset status
+          formStatus.innerHTML = '';
+          formStatus.className = 'mt-4 text-center';
+          
+          // Show loading message
+          formStatus.classList.remove('hidden');
+          formStatus.innerHTML = '<p class="text-amber-600">Sending your message...</p>';
+          
+          // Get form data
+          const formData = new FormData(contactForm);
+          
+          // Send AJAX request
+          fetch('contact.php', {
+            method: 'POST',
+            body: formData
+          })
+          .then(response => response.json())
+          .then(data => {
+            formStatus.innerHTML = '';
+            
+            if (data.success) {
+              // Success message
+              formStatus.innerHTML = '<p class="text-green-600">' + data.message + '</p>';
+              contactForm.reset();
+            } else {
+              // Error message
+              let errorHtml = '<p class="text-red-600">' + data.message + '</p>';
+              
+              if (data.errors && data.errors.length > 0) {
+                errorHtml += '<ul class="list-disc pl-5 mt-2">';
+                data.errors.forEach(error => {
+                  errorHtml += '<li class="text-red-600">' + error + '</li>';
+                });
+                errorHtml += '</ul>';
+              }
+              
+              formStatus.innerHTML = errorHtml;
+            }
+          })
+          .catch(error => {
+            formStatus.innerHTML = '<p class="text-red-600">Sorry, there was an error sending your message. Please try again later.</p>';
+          });
+        });
+      });
+    </script>
   </body>
 </html>
