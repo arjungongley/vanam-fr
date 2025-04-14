@@ -77,7 +77,7 @@ vanam-fr/
     <body class="bg-white">
         <!-- Your content here -->
         
-        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>  <!-- Include for sliders -->
+         <script src="js/swiper/swiper-bundle.min.js"></script>  <!-- Include for sliders -->
         <script src="js/script.js"></script>
     </body>
 </html>

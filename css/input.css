@@ -1,15 +1,62 @@
 @import "tailwindcss";
-.shaowbox {
-    -webkit-box-shadow: 20px 24px 0px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 20px 24px 0px rgba(0, 0, 0, 0.2);
-    box-shadow: 20px 24px 0px rgba(0, 0, 0, 0.2);
-  }
 
-  @media screen and (max-width: 768px) {
-    .shaowbox {
-      -webkit-box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.2);
-      -moz-box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.2);
-      box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.2);
-    }
-    
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/Inter-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/Inter-Medium.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/Inter-SemiBold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/Inter-Bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../fonts/Inter-ExtraBold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("../fonts/Inter-Black.woff2") format("woff2");
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.shaowbox {
+  -webkit-box-shadow: 20px 24px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 20px 24px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 20px 24px 0px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 768px) {
+  .shaowbox {
+    -webkit-box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.2);
   }
+}
