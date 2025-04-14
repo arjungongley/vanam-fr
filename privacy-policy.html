@@ -11,7 +11,7 @@
 <!-- Open Graph Meta Tags -->
 <meta property="og:title" content="Privacy Policy - Vanam SARL" />
 <meta property="og:description" content="Learn how Vanam protects your personal information and respects your privacy." />
-<meta property="og:image" content="[https://www.vanam.fr/images/vanam-logo.png"](https://www.vanam.fr/images/vanam-logo.png") />
+<meta property="og:image" content="[https://www.vanam.fr/images/vanam-logo.webp"](https://www.vanam.fr/images/vanam-logo.webp") />
 <meta property="og:url" content="[https://www.vanam.fr/privacy-policy.html"](https://www.vanam.fr/privacy-policy.html") />
 <meta property="og:type" content="website" />
 
@@ -19,7 +19,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Privacy Policy - Vanam SARL" />
 <meta name="twitter:description" content="Learn how Vanam protects your personal information and respects your privacy." />
-<meta name="twitter:image" content="[https://www.vanam.fr/images/vanam-logo.png"](https://www.vanam.fr/images/vanam-logo.png") />
+<meta name="twitter:image" content="[https://www.vanam.fr/images/vanam-logo.webp"](https://www.vanam.fr/images/vanam-logo.webp") />
 
 <!-- Canonical URL -->
 <link rel="canonical" href="[https://www.vanam.fr/privacy-policy.html"](https://www.vanam.fr/privacy-policy.html") />
@@ -27,12 +27,8 @@
 <!-- Robots Meta Tag -->
 <meta name="robots" content="index, follow" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
       rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+      href="css/swiper/swiper-bundle.min.css"
     />
     <link rel="stylesheet" href="css/style.css" />
   </head>
@@ -44,7 +40,7 @@
         <!-- Logo -->
         <a href="index.html" class="text-lg font-bold"
           ><img
-            src="images/vanam-logo.png"
+            src="images/vanam-logo.webp"
             class="w-24 md:w-35 h-fit"
             width="100"
             height="30"
@@ -99,13 +95,11 @@
           >
             <!-- Links -->
             <div class="flex flex-col md:flex-row gap-4 md:gap-8">
-              <a href="index.html" class="cursor-pointer text-gray-700 hover:text-gray-900">Home</a>
-
-              <a href="index.html#suppliers" class="cursor-pointer text-gray-700 hover:text-gray-900">Suppliers</a>
-
-              <a href="index.html#review" class="cursor-pointer text-gray-700 hover:text-gray-900">Customers</a>
-              
-              <a href="index.html#teams" class="cursor-pointer text-gray-700 hover:text-gray-900">Our Team</a>
+              <button data-scroll="suppliers" class="cursor-pointer text-gray-700 hover:text-gray-900"
+              >Suppliers</button>
+              <button data-scroll="review" class="cursor-pointer text-gray-700 hover:text-gray-900"
+                >Customers</button>
+              <button data-scroll="teams" class="cursor-pointer text-gray-700 hover:text-gray-900">Our Team</button>
             </div>
 
             <!-- Contact Button -->
@@ -199,12 +193,13 @@
         <div class="px-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
           <!-- Logo and Description -->
           <div>
-            <a class="text-lg font-bold bg-white inline-block px-2 py-1"
+            <a href="index.html" class="text-lg font-bold bg-white inline-block px-2 py-1"
               ><img
-                src="images/vanam-logo.png"
+                src="images/vanam-logo.webp"
                 class="w-30 md:w-40 h-fit"
                 width="100"
                 height="30"
+                loading="lazy"
                 alt="website-logo"
             /></a>
             <p class="text-sm leading-relaxed mt-2">
@@ -287,7 +282,7 @@
                 <div class="swiper-slide">
                   <div class="flex w-full gap-2">
                     <div class="size-12 bg-white rounded-full shrink-0 overflow-hidden">
-                      <img src="images/avatar.jpg" alt="client_img" class="size-full" />
+                      <img width="80" height="80" loading="lazy" src="images/avatar.jpg" alt="client_img" class="size-full" />
                     </div>
                     <p class="text-sm leading-relaxed">
                       "I have chosen VANAM because of the top quality products
@@ -298,7 +293,7 @@
                 <div class="swiper-slide">
                   <div class="flex w-full gap-2">
                     <div class="size-12 bg-white rounded-full shrink-0 overflow-hidden">
-                      <img src="images/avatar.jpg" alt="client_img" class="size-full" />
+                      <img width="80" height="80" loading="lazy" src="images/avatar.jpg" alt="client_img" class="size-full" />
                     </div>
                     <p class="text-sm leading-relaxed">
                       "I have been working with VANAM for more than 10 years! They are business partners with great opportunities 
@@ -309,7 +304,7 @@
                 <div class="swiper-slide">
                   <div class="flex w-full gap-2">
                     <div class="size-12 bg-white rounded-full shrink-0 overflow-hidden">
-                      <img src="images/avatar.jpg" alt="client_img" class="size-full" />
+                      <img width="80" height="80" loading="lazy" src="images/avatar.jpg" alt="client_img" class="size-full" />
                     </div>
                     <p class="text-sm leading-relaxed">
                       "I really enjoy to visit VANAM in Marseille! I can see the products and spend a nice moment with the team! 
@@ -337,7 +332,7 @@
         <p class="text-sm">© Copyright 2025 VANAM SARL</p>
       </div>
     </footer>
-
-    <script src="js/script.js"></script>
+    <script defer src="js/swiper/swiper-bundle.min.js"></script>
+    <script defer src="js/script.js"></script>
   </body>
 </html>
