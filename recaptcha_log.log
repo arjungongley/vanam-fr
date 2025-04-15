@@ -1,0 +1,21 @@
+2025-04-15 17:30:17 - reCAPTCHA response: stdClass Object
+(
+    [success] => 1
+    [challenge_ts] => 2025-04-15T15:30:17Z
+    [hostname] => testkey.google.com
+)
+
+2025-04-15 17:41:34 - reCAPTCHA response: stdClass Object
+(
+    [success] => 1
+    [challenge_ts] => 2025-04-15T15:36:15Z
+    [hostname] => localhost
+)
+
+2025-04-15 17:43:52 - reCAPTCHA response: stdClass Object
+(
+    [success] => 1
+    [challenge_ts] => 2025-04-15T15:42:51Z
+    [hostname] => localhost
+)
+
