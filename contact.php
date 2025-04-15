@@ -201,7 +201,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 // Return JSON response for AJAX requests
 if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+    // Ensure no output has happened before
+    if (ob_get_length()) ob_clean();
+    
+    // Set proper JSON header
     header('Content-Type: application/json');
+    
+    // Return clean JSON response
     echo json_encode($response);
     exit;
 }
