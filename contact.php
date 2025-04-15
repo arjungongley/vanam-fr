@@ -15,15 +15,15 @@ file_put_contents('debug_post.log', date('Y-m-d H:i:s') . " - Raw POST data: " .
 
 // Configuration - Update these with your actual email settings
 $config = [
-    'admin_email' => 'reCAPTCHA', // Change to your actual email
+    'admin_email' => 'your-email@example.com', // Change to your actual email
     'email_subject' => 'New Contact Form Submission - Vanam SARL',
-    'smtp_host' => 'mail.vanam.fr', // Update with your SMTP server
-    'smtp_username' => 'sales@vanam.fr', // Update with your SMTP username
-    'smtp_password' => 'Vanam13010', // Update with your SMTP password
+    'smtp_host' => 'smtp.example.com', // Update with your SMTP server
+    'smtp_username' => 'username@example.com', // Update with your SMTP username
+    'smtp_password' => 'your-smtp-password', // Update with your SMTP password
     'smtp_port' => 587, // Common ports: 25, 465, 587
     'smtp_secure' => 'tls', // Options: '', 'ssl', 'tls'
     'smtp_auth_type' => 'LOGIN', // Force LOGIN authentication method
-    'recaptcha_secret' => '6LdFyhkrAAAAAB2UQcgQdvDUb_rJov550ry5t_Vi', // Test secret key - replace with your actual secret key in production
+    'recaptcha_secret' => 'your-recaptcha-secret-key', // Replace with your actual secret key in production
 ];
 
 // Initialize response array
